@@ -178,7 +178,6 @@ public:
         }
     }
 
-   // Save function
 void saveToFile() {
     ofstream out(filename);
     if (!out) {
@@ -203,11 +202,10 @@ void saveToFile() {
             if (eng) out << ";" << eng->getProjectCount();
         }
 
-        out << "\n"; // new line per employee
+        out << "\n";
     }
 }
 
-// Load function
 void loadFromFile() {
     ifstream in(filename);
     if (!in) {
@@ -222,7 +220,6 @@ void loadFromFile() {
         stringstream ss(line);
         string type, idStr, name, ageStr, salaryStr, extraStr;
 
-        // Mandatory fields
         if (!getline(ss, type, ';')) continue;
         if (!getline(ss, idStr, ';')) continue;
         if (!getline(ss, name, ';')) continue;
@@ -276,7 +273,7 @@ void loadFromFile() {
             case 2: removeEmployee(); break;
             case 3: searchEmployee(); break;
             case 4: listEmployees(); break;
-            case 5: return;  // Exit the program
+            case 5: return;  
             default: cout << "Invalid choice.\n";
         }
 
